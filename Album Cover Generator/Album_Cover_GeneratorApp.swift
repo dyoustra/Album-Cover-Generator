@@ -11,7 +11,7 @@ import SwiftUI
 struct Album_Cover_GeneratorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthorizeView()
         }
     }
 }
