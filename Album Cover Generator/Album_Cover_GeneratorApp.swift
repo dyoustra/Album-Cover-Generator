@@ -9,9 +9,26 @@ import SwiftUI
 
 @main
 struct Album_Cover_GeneratorApp: App {
+
+    @State var deeplinkTarget: DeepLinkManager.DeeplinkTarget?
+
     var body: some Scene {
         WindowGroup {
-            AuthorizeView()
+            Group {
+                switch self.deeplinkTarget {
+                case .home:
+                    Home()
+                case .authorizeView:
+                    AuthorizeView()
+                case .none:
+                    Home()
+                }
+            }
+            .onOpenURL { url in
+                let deepLinkManager = DeepLinkManager()
+                let deepLink = deepLinkManager.manage(url)
+                self.deeplinkTarget = deepLink
+            }
         }
     }
 }

@@ -16,7 +16,8 @@ class AuthorizeViewModel: ObservableObject {
         clientId: "89a6bb6fe2b046589fbd1e4dc3623ef4"
         )
     )
-    private let redirectURL = URL(string: "album-cover-generator-spotify-auth://callback")!
+    
+    private let redirectURL = URL(string: "album-cover-generator-://authorize-view")!
     private var cancellations: [AnyCancellable] = []
     @Published var isPresentingWebView = false {
         didSet {
@@ -31,6 +32,7 @@ class AuthorizeViewModel: ObservableObject {
     private var codeVerifier    = ""
     private var codeChallenge   = ""
     private var state           = ""
+    
     
     // uses Authorization Code Flow with Proof Key for Code Exchange (can't put client secret on a public repo)
     // https://github.com/Peter-Schorn/SpotifyAPI#supported-platforms
