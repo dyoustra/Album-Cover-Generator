@@ -15,7 +15,7 @@ class AuthorizeViewModel: ObservableObject {
         clientId: "89a6bb6fe2b046589fbd1e4dc3623ef4"
         )
     )
-    let redirectURL = URL(string: "album-cover-generator-spotify-auth://callback")!
+    let redirectURL = URL(string: "album-cover-generator://authorize-view")!
     var cancellations: [AnyCancellable] = []
     @Published var authorized = false
     

@@ -13,6 +13,8 @@
 		17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */; };
 		17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 17D8349D29A9992A00F498D4 /* SpotifyAPI */; };
 		17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */; };
+		EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */; };
+		EDB5D0B529B069CE002BE308 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B429B069CE002BE308 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		17D8349229A95D7B00F498D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewModel.swift; sourceTree = "<group>"; };
+		EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Album-Cover-Generator-Info.plist"; sourceTree = SOURCE_ROOT; };
+		EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
+		EDB5D0B429B069CE002BE308 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +60,12 @@
 		17D8348D29A95D7A00F498D4 /* Album Cover Generator */ = {
 			isa = PBXGroup;
 			children = (
+				EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */,
+				EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */,
 				17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */,
 				17D8349029A95D7A00F498D4 /* AuthorizeView.swift */,
 				17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */,
+				EDB5D0B429B069CE002BE308 /* Home.swift */,
 				17D8349229A95D7B00F498D4 /* Assets.xcassets */,
 				17D8349429A95D7B00F498D4 /* Preview Content */,
 			);
@@ -150,7 +158,9 @@
 			files = (
 				17D8349129A95D7A00F498D4 /* AuthorizeView.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
+				EDB5D0B529B069CE002BE308 /* Home.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
+				EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,11 +292,13 @@
 				DEVELOPMENT_TEAM = C8YMKXNGLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Album-Cover-Generator-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,11 +323,13 @@
 				DEVELOPMENT_TEAM = C8YMKXNGLP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Album-Cover-Generator-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
