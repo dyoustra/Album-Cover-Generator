@@ -10,15 +10,7 @@ import SwiftUI
 struct AuthorizeView: View {
     @ObservedObject var model = AuthorizeViewModel()
     var body: some View {
-        if model.authorized {
-            VStack {
-                Image(systemName: "checkmark.circle")
-                    .foregroundColor(.green)
-                    .imageScale(.large)
-                Text("AUTHORIZED LFG")
-            }
-        }
-        VStack {
+        VStack(spacing: 30.0) {
             Button(action: {
                 model.AuthorizeSpotify()
             }, label: {
@@ -27,8 +19,17 @@ struct AuthorizeView: View {
                     .foregroundColor(.accentColor)
                 Text("Connect with Spotify")
             })
+            Button {
+                model.checkAuthorization()
+            } label: {
+                Image(systemName: "person.crop.circle.badge.questionmark")
+                Text("Check authorization")
+            }
+
         }
-        .padding()
+        .sheet(isPresented: $model.isPresentingWebView) {
+            WebView(url: model.authorizationURL!)
+        }
     }
 }
 

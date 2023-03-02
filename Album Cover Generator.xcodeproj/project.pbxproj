@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17000A4929B07796003BD54C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000A4829B07796003BD54C /* WebView.swift */; };
 		17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */; };
 		17D8349129A95D7A00F498D4 /* AuthorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8349029A95D7A00F498D4 /* AuthorizeView.swift */; };
 		17D8349329A95D7B00F498D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D8349229A95D7B00F498D4 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17000A4829B07796003BD54C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Album Cover Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album_Cover_GeneratorApp.swift; sourceTree = "<group>"; };
 		17D8349029A95D7A00F498D4 /* AuthorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeView.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 		17D8348229A95D7A00F498D4 = {
 			isa = PBXGroup;
 			children = (
+				17000A4829B07796003BD54C /* WebView.swift */,
 				17D8348D29A95D7A00F498D4 /* Album Cover Generator */,
 				17D8348C29A95D7A00F498D4 /* Products */,
 			);
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D8349129A95D7A00F498D4 /* AuthorizeView.swift in Sources */,
+				17000A4929B07796003BD54C /* WebView.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
 			);
@@ -287,6 +291,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
