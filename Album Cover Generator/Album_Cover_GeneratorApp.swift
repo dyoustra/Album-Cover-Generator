@@ -11,6 +11,7 @@ import SwiftUI
 struct Album_Cover_GeneratorApp: App {
 
     @State var deeplinkTarget: DeepLinkManager.DeeplinkTarget?
+    @ObservedObject var model = AuthorizeViewModel()
 
     var body: some Scene {
         WindowGroup {
@@ -19,15 +20,24 @@ struct Album_Cover_GeneratorApp: App {
                 case .home:
                     Home()
                 case .authorizeView:
-                    AuthorizeView()
+                    AuthorizeView(model: model)
                 case .none:
-                    Home()
+                    AuthorizeView(model: model)
                 }
             }
             .onOpenURL { url in
                 let deepLinkManager = DeepLinkManager()
                 let deepLink = deepLinkManager.manage(url)
                 self.deeplinkTarget = deepLink
+
+                switch self.deeplinkTarget {
+                case .authorizeView:
+                    model.updateRedirectURIWithQuery(url: url)
+                    break
+                default:
+                    break
+                }
+                model.isPresentingWebView = false
             }
         }
     }

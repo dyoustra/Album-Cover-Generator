@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AuthorizeView: View {
-    @ObservedObject var model = AuthorizeViewModel()
+    @ObservedObject var model : AuthorizeViewModel
     var body: some View {
         VStack(spacing: 30.0) {
             Button(action: {
@@ -19,22 +20,23 @@ struct AuthorizeView: View {
                     .foregroundColor(.accentColor)
                 Text("Connect with Spotify")
             })
-            Button {
-                model.checkAuthorization()
-            } label: {
+            if (model.spotify.authorizationManager.isAuthorized()) {
+                Image(systemName: "person.crop.circle.badge.checkmark")
+            } else {
                 Image(systemName: "person.crop.circle.badge.questionmark")
-                Text("Check authorization")
             }
+//            Button {
+//                model.checkAuthorization()
+//            } label: {
+//                Image(systemName: "person.crop.circle.badge.questionmark")
+//                Text("Check authorization")
+//            }
 
         }
-        .sheet(isPresented: $model.isPresentingWebView) {
+        .popover(isPresented: $model.isPresentingWebView) {
             WebView(url: model.authorizationURL!)
+                .interactiveDismissDisabled(true)
         }
     }
 }
 
-struct AuthorizeView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthorizeView()
-    }
-}

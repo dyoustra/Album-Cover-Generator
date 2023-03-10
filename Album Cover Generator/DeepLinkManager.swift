@@ -22,14 +22,17 @@ class DeepLinkManager {
     func manage(_ url: URL) -> DeeplinkTarget {
         let urlName = url.absoluteString
         let urlArray = urlName.components(separatedBy: "/")
-        let urlQuery = urlArray.last
 
-        switch urlQuery {
-        case DeepLinkConstants.authorizeQuery:
-            return .authorizeView
-        default:
-            return .home
+        for value in urlArray {
+            switch value {
+            case DeepLinkConstants.authorizeQuery:
+                return .authorizeView
+            default:
+                continue
+            }
         }
+
+        return .home
 
     }
 }

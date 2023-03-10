@@ -12,16 +12,21 @@ import UIKit
 
 class AuthorizeViewModel: ObservableObject {
     
-    private let spotify = SpotifyAPI(authorizationManager: AuthorizationCodeFlowPKCEManager(
+    @Published var spotify = SpotifyAPI(authorizationManager: AuthorizationCodeFlowPKCEManager(
         clientId: "89a6bb6fe2b046589fbd1e4dc3623ef4"
         )
     )
-    
-    private let redirectURL = URL(string: "album-cover-generator-://authorize-view")!
+
+    private var redirectURIWithQuery = URL(string: "album-cover-generator://authorize-view")!
+    private let redirectURL = URL(string: "album-cover-generator://authorize-view")!
     private var cancellations: [AnyCancellable] = []
+    private var cancellables: [AnyCancellable] = []
+
     @Published var isPresentingWebView = false {
         didSet {
-            print("presenting web view: \(self.isPresentingWebView)")
+            if isPresentingWebView == false{
+                checkAuthorization()
+            }
         }
     }
     @Published var authorizationURL = URL(string: "") {
@@ -32,6 +37,10 @@ class AuthorizeViewModel: ObservableObject {
     private var codeVerifier    = ""
     private var codeChallenge   = ""
     private var state           = ""
+
+    func updateRedirectURIWithQuery(url: URL) {
+        self.redirectURIWithQuery = url
+    }
     
     
     // uses Authorization Code Flow with Proof Key for Code Exchange (can't put client secret on a public repo)
@@ -61,7 +70,7 @@ class AuthorizeViewModel: ObservableObject {
     
     func checkAuthorization() {
         spotify.authorizationManager.requestAccessAndRefreshTokens(
-            redirectURIWithQuery: self.redirectURL,
+            redirectURIWithQuery: self.redirectURIWithQuery,
             // Must match the code verifier that was used to generate the
             // code challenge when creating the authorization URL.
             codeVerifier: self.codeVerifier,
@@ -70,15 +79,26 @@ class AuthorizeViewModel: ObservableObject {
         )
         .sink(receiveCompletion: { completion in
             switch completion {
-                case .finished:
-                    print("successfully authorized")
-                case .failure(let error):
-                    if let authError = error as? SpotifyAuthorizationError, authError.accessWasDenied {
-                        print("The user denied the authorization request")
-                    }
-                    else {
-                        print("couldn't authorize application: \(error)")
-                    }
+            case .finished:
+                print("successfully authorized")
+                self.spotify.currentUserPlaylists()
+                    .extendPages(self.spotify)
+                    .sink(
+                        receiveCompletion: { completion in
+                            print(completion)
+                        },
+                        receiveValue: { results in
+                            print(results)
+                        }
+                    ).store(in: &self.cancellables)
+                self.objectWillChange.send()
+            case .failure(let error):
+                if let authError = error as? SpotifyAuthorizationError, authError.accessWasDenied {
+                    print("The user denied the authorization request")
+                }
+                else {
+                    print("couldn't authorize application: \(error)")
+                }
             }
         })
         .store(in: &cancellations)
