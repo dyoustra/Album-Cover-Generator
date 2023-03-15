@@ -11,7 +11,7 @@ import SwiftUI
 struct Album_Cover_GeneratorApp: App {
 
     @State var deeplinkTarget: DeepLinkManager.DeeplinkTarget?
-    @ObservedObject var model = AuthorizeViewModel()
+    @ObservedObject var spotify = Spotify()
 
     var body: some Scene {
         WindowGroup {
@@ -20,9 +20,9 @@ struct Album_Cover_GeneratorApp: App {
                 case .home:
                     Home()
                 case .authorizeView:
-                    AuthorizeView(model: model)
+                    AuthorizeView(spotify: spotify)
                 case .none:
-                    AuthorizeView(model: model)
+                    AuthorizeView(spotify: spotify)
                 }
             }
             .onOpenURL { url in
@@ -32,12 +32,12 @@ struct Album_Cover_GeneratorApp: App {
 
                 switch self.deeplinkTarget {
                 case .authorizeView:
-                    model.updateRedirectURIWithQuery(url: url)
+                    spotify.updateRedirectURIWithQuery(url: url)
                     break
                 default:
                     break
                 }
-                model.isPresentingWebView = false
+                spotify.isPresentingWebView = false
             }
         }
     }

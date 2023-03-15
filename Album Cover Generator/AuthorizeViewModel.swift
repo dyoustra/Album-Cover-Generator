@@ -91,7 +91,6 @@ class AuthorizeViewModel: ObservableObject {
                             print(results)
                         }
                     ).store(in: &self.cancellables)
-                self.objectWillChange.send()
             case .failure(let error):
                 if let authError = error as? SpotifyAuthorizationError, authError.accessWasDenied {
                     print("The user denied the authorization request")

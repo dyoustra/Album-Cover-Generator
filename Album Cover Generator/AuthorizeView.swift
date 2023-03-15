@@ -9,32 +9,26 @@ import SwiftUI
 import Combine
 
 struct AuthorizeView: View {
-    @ObservedObject var model : AuthorizeViewModel
+    @ObservedObject var spotify : Spotify
     var body: some View {
         VStack(spacing: 30.0) {
             Button(action: {
-                model.AuthorizeSpotify()
+                spotify.authorize()
             }, label: {
                 Image(systemName: "music.note.list")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
                 Text("Connect with Spotify")
             })
-            if (model.spotify.authorizationManager.isAuthorized()) {
+            if (spotify.isAuthorized) {
                 Image(systemName: "person.crop.circle.badge.checkmark")
             } else {
                 Image(systemName: "person.crop.circle.badge.questionmark")
             }
-//            Button {
-//                model.checkAuthorization()
-//            } label: {
-//                Image(systemName: "person.crop.circle.badge.questionmark")
-//                Text("Check authorization")
-//            }
 
         }
-        .popover(isPresented: $model.isPresentingWebView) {
-            WebView(url: model.authorizationURL!)
+        .popover(isPresented: $spotify.isPresentingWebView) {
+            WebView(url: spotify.authorizationURL!)
                 .interactiveDismissDisabled(true)
         }
     }
