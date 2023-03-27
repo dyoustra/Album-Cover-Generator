@@ -15,29 +15,33 @@ struct Album_Cover_GeneratorApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Group {
-                switch self.deeplinkTarget {
-                case .home:
-                    Home()
-                case .authorizeView:
-                    AuthorizeView(spotify: spotify)
-                case .none:
-                    AuthorizeView(spotify: spotify)
+            if (spotify.isAuthorized) {
+                UserPlaylistsView(spotify: spotify)
+            } else {
+                Group {
+                    switch self.deeplinkTarget {
+                    case .home:
+                        Home()
+                    case .authorizeView:
+                        AuthorizeView(spotify: spotify)
+                    case .none:
+                        AuthorizeView(spotify: spotify)
+                    }
                 }
-            }
-            .onOpenURL { url in
-                let deepLinkManager = DeepLinkManager()
-                let deepLink = deepLinkManager.manage(url)
-                self.deeplinkTarget = deepLink
+                .onOpenURL { url in
+                    let deepLinkManager = DeepLinkManager()
+                    let deepLink = deepLinkManager.manage(url)
+                    self.deeplinkTarget = deepLink
 
-                switch self.deeplinkTarget {
-                case .authorizeView:
-                    spotify.updateRedirectURIWithQuery(url: url)
-                    break
-                default:
-                    break
+                    switch self.deeplinkTarget {
+                    case .authorizeView:
+                        spotify.updateRedirectURIWithQuery(url: url)
+                        break
+                    default:
+                        break
+                    }
+                    spotify.isPresentingWebView = false
                 }
-                spotify.isPresentingWebView = false
             }
         }
     }

@@ -16,6 +16,8 @@
 		17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */; };
 		ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41FAE429C11E39004F7152 /* Spotify.swift */; };
 		ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = ED41FAE729C11F27004F7152 /* KeychainAccess */; };
+		ED590D6929CB620500AC9FB8 /* UserPlaylistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6829CB620500AC9FB8 /* UserPlaylistsView.swift */; };
+		ED590D6B29CB6EFE00AC9FB8 /* PlaylistCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6A29CB6EFE00AC9FB8 /* PlaylistCellView.swift */; };
 		EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */; };
 		EDB5D0B529B069CE002BE308 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B429B069CE002BE308 /* Home.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewModel.swift; sourceTree = "<group>"; };
 		ED41FAE429C11E39004F7152 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
+		ED590D6829CB620500AC9FB8 /* UserPlaylistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPlaylistsView.swift; sourceTree = "<group>"; };
+		ED590D6A29CB6EFE00AC9FB8 /* PlaylistCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCellView.swift; sourceTree = "<group>"; };
 		EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Album-Cover-Generator-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		EDB5D0B429B069CE002BE308 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				17000A4829B07796003BD54C /* WebView.swift */,
 				EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */,
 				17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */,
+				ED590D6829CB620500AC9FB8 /* UserPlaylistsView.swift */,
+				ED590D6A29CB6EFE00AC9FB8 /* PlaylistCellView.swift */,
 				17D8349029A95D7A00F498D4 /* AuthorizeView.swift */,
 				17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */,
 				EDB5D0B429B069CE002BE308 /* Home.swift */,
@@ -168,11 +174,13 @@
 			files = (
 				17D8349129A95D7A00F498D4 /* AuthorizeView.swift in Sources */,
 				17000A4929B07796003BD54C /* WebView.swift in Sources */,
+				ED590D6B29CB6EFE00AC9FB8 /* PlaylistCellView.swift in Sources */,
 				ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
 				EDB5D0B529B069CE002BE308 /* Home.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
 				EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */,
+				ED590D6929CB620500AC9FB8 /* UserPlaylistsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

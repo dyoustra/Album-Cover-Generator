@@ -108,7 +108,9 @@ final class Spotify: ObservableObject {
                 .playlistModifyPrivate,
                 .playlistModifyPublic,
                 .userReadPrivate,
-                .userLibraryRead
+                .userLibraryRead,
+                .userReadRecentlyPlayed,
+                .userTopRead
             ]
         )!
 
