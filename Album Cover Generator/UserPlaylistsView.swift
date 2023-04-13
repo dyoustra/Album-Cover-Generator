@@ -46,14 +46,6 @@ struct UserPlaylistsView: View {
                 }
             }
             else {
-                Text(
-                    """
-                    Tap on a playlist to play it. Tap and hold on a Playlist \
-                    to remove duplicates.
-                    """
-                )
-                .font(.caption)
-                .foregroundColor(.secondary)
                 List {
                     ForEach(playlists, id: \.uri) { playlist in
                         PlaylistCellView(spotify: spotify, playlist: playlist)
