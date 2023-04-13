@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct AuthorizeView: View {
-    @ObservedObject var spotify : Spotify
+    @EnvironmentObject var spotify: Spotify
     var body: some View {
         VStack(spacing: 30.0) {
             Button(action: {

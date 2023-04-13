@@ -52,7 +52,6 @@ final class Spotify: ObservableObject {
     var cancellables: [AnyCancellable] = []
 
     init() {
-        print("mhm buddy")
         // MARK: Important: Subscribe to `authorizationManagerDidChange` BEFORE
         // MARK: retrieving `authorizationManager` from persistent storage
         self.api.authorizationManagerDidChange
@@ -143,7 +142,6 @@ final class Spotify: ObservableObject {
     }
 
     func authorizationManagerDidChange() {
-        print("yessir bruh")
         // Update the @Published `isAuthorized` property.
         self.isAuthorized = self.api.authorizationManager.isAuthorized()
 

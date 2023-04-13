@@ -9,39 +9,47 @@ import SwiftUI
 
 @main
 struct Album_Cover_GeneratorApp: App {
-
-    @State var deeplinkTarget: DeepLinkManager.DeeplinkTarget?
-    @ObservedObject var spotify = Spotify()
-
     var body: some Scene {
         WindowGroup {
-            if (spotify.isAuthorized) {
-                UserPlaylistsView(spotify: spotify)
-            } else {
-                Group {
-                    switch self.deeplinkTarget {
-                    case .home:
-                        Home()
-                    case .authorizeView:
-                        AuthorizeView(spotify: spotify)
-                    case .none:
-                        AuthorizeView(spotify: spotify)
-                    }
-                }
-                .onOpenURL { url in
-                    let deepLinkManager = DeepLinkManager()
-                    let deepLink = deepLinkManager.manage(url)
-                    self.deeplinkTarget = deepLink
+            NavigationStack {
+                RootView().environmentObject(Spotify())
+            }
+        }
+    }
+}
 
-                    switch self.deeplinkTarget {
-                    case .authorizeView:
-                        spotify.updateRedirectURIWithQuery(url: url)
-                        break
-                    default:
-                        break
-                    }
-                    spotify.isPresentingWebView = false
+struct RootView: View {
+    
+    @State var deeplinkTarget: DeepLinkManager.DeeplinkTarget?
+    @EnvironmentObject var spotify: Spotify
+    
+    var body: some View {
+        if (spotify.isAuthorized) {
+            LibraryView()
+        } else {
+            Group {
+                switch self.deeplinkTarget {
+                case .home:
+                    Home()
+                case .authorizeView:
+                    AuthorizeView()
+                case .none:
+                    AuthorizeView()
                 }
+            }
+            .onOpenURL { url in
+                let deepLinkManager = DeepLinkManager()
+                let deepLink = deepLinkManager.manage(url)
+                self.deeplinkTarget = deepLink
+
+                switch self.deeplinkTarget {
+                case .authorizeView:
+                    spotify.updateRedirectURIWithQuery(url: url)
+                    break
+                default:
+                    break
+                }
+                spotify.isPresentingWebView = false
             }
         }
     }

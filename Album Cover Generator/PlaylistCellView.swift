@@ -16,7 +16,8 @@ struct PlaylistCellView: View {
     let playlist: Playlist<PlaylistItemsReference>
 
         /// The cover image for the playlist.
-    @State private var image = Image("Spotify Album Placeholder")
+    // if we want to switch it back to the square SpotifyAlbumPlaceholder, need a version for light mode
+    @State private var image = Image(systemName: "music.note")
 
     @State private var didRequestImage = false
 
@@ -25,11 +26,11 @@ struct PlaylistCellView: View {
     @State private var playPlaylistCancellable: AnyCancellable? = nil
 
     var body: some View {
-        Button(action: playPlaylist, label: {
+        Button(action: generatePlaylistCover, label: {
             HStack {
                 image
                     .resizable()
-//                    .aspectRatio(contentMode: .fit)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 70, height: 70)
 //                    .padding(.trailing, 5)
                 Text("\(playlist.name)")
@@ -77,20 +78,8 @@ struct PlaylistCellView: View {
             )
     }
 
-    func playPlaylist() {
-
-        _ = PlaybackRequest(
-            context: .contextURI(playlist), offset: nil
-        )
-//        self.playPlaylistCancellable = self.spotify.api
-//            .getAvailableDeviceThenPlay(playbackRequest)
-//            .receive(on: RunLoop.main)
-//            .sink(receiveCompletion: { completion in
-//                if case .failure(let error) = completion {
-//                    return
-//                }
-//            })
-
+    func generatePlaylistCover() {
+        
     }
 }
 
