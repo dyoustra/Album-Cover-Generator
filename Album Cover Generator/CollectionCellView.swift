@@ -1,5 +1,5 @@
 //
-//  PlaylistCellView.swift
+//  CollectionCellView.swift
 //  Album Cover Generator
 //
 //  Created by Rehan Parwani on 3/22/23.
@@ -9,14 +9,14 @@ import SwiftUI
 import Combine
 import SpotifyWebAPI
 
-struct PlaylistCellView: View {
+struct CollectionCellView: View {
 
-    @ObservedObject var spotify: Spotify
+    @EnvironmentObject var spotify: Spotify
 
-    let playlist: Playlist<PlaylistItemsReference>
+    /// Type: Playlist<PlaylistItemsReference> or Album
+    let collection: Any
 
-        /// The cover image for the playlist.
-    // if we want to switch it back to the square SpotifyAlbumPlaceholder, need a version for light mode
+        /// The cover image for the playlist. If we want to switch it back to the square SpotifyAlbumPlaceholder, we need a version for light mode
     @State private var image = Image(systemName: "music.note")
 
     @State private var didRequestImage = false
@@ -26,25 +26,35 @@ struct PlaylistCellView: View {
     @State private var playPlaylistCancellable: AnyCancellable? = nil
 
     var body: some View {
-        Button(action: generatePlaylistCover, label: {
+        NavigationLink {
+            EmptyView()
+        } label: {
             HStack {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 70, height: 70)
 //                    .padding(.trailing, 5)
-                Text("\(playlist.name)")
+                collectionName()
                 Spacer()
             }
             // Ensure the hit box extends across the entire width of the frame.
             // See https://bit.ly/2HqNk4S
             .contentShape(Rectangle())
-
-        })
-        .buttonStyle(PlainButtonStyle())
+        }
         .onAppear(perform: loadImage)
     }
-
+    
+    func collectionName() -> Text {
+        if let album = collection as? Album {
+            return Text(album.name)
+        }
+        if let playlist = collection as? Playlist<PlaylistItemsReference> {
+            return Text(playlist.name)
+        }
+        return Text("")
+    }
+    
     func loadImage() {
 
         // Return early if the image has already been requested. We can't just
@@ -55,11 +65,16 @@ struct PlaylistCellView: View {
             return
         }
         self.didRequestImage = true
-
-        guard let spotifyImage = playlist.images.largest else {
-            // print("no image found for '\(playlist.name)'")
-            return
+        
+        var spotifyImage: SpotifyImage
+        
+        if let image = ((collection as? Album)?.images?.largest) {
+            spotifyImage = image
         }
+        else if let image = ((collection as? Playlist<PlaylistItemsReference>)?.images.largest) {
+            spotifyImage = image
+        }
+        else { return }
 
         // print("loading image for '\(playlist.name)'")
 
@@ -76,10 +91,6 @@ struct PlaylistCellView: View {
                     self.image = image
                 }
             )
-    }
-
-    func generatePlaylistCover() {
-        
     }
 }
 

@@ -19,11 +19,11 @@ struct LibraryView: View {
     var body: some View {
         List {
             Group {
-                NavigationLink("Albums") {
-                    
+                NavigationLink("Saved Albums") {
+                    MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
                 }
-                NavigationLink("Playlists") {
-                    UserPlaylistsView().environmentObject(spotify)
+                NavigationLink("Saved Playlists") {
+                    MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
                 }
             }
             .frame(height: 70.0)
@@ -77,9 +77,12 @@ struct LibraryView: View {
 
 
 struct LibraryView_Previews: PreviewProvider {
+    static let spotify = Spotify()
+    
     static var previews: some View {
         NavigationStack {
             LibraryView()
+                .environmentObject(spotify)
         }
     }
 }
