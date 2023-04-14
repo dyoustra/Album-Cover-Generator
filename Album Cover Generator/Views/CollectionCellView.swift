@@ -55,6 +55,7 @@ struct CollectionCellView: View {
         return Text("")
     }
     
+    // another time: check if we can just replace this function by using AsyncImage
     func loadImage() {
 
         // Return early if the image has already been requested. We can't just
