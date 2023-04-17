@@ -27,14 +27,21 @@ struct CollectionCellView: View {
 
     var body: some View {
         NavigationLink {
-            EmptyView()
+            if let album = collection as? Album {
+                GenerateAlbumView(coverImage: self.image, albumCollection: album)
+            }
+
+            if let playlist = collection as? Playlist<PlaylistItemsReference> {
+                GeneratePlaylistView(coverImage: self.image, playlistCollection: playlist).environmentObject(spotify)
+            }
+
         } label: {
             HStack {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 70, height: 70)
-//                    .padding(.trailing, 5)
+                    .cornerRadius(10)
                 collectionName()
                 Spacer()
             }

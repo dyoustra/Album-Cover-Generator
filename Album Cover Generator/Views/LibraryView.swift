@@ -19,14 +19,21 @@ struct LibraryView: View {
     var body: some View {
         List {
             Group {
-                NavigationLink("Saved Albums") {
-                    MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+                VStack {
+                    Spacer()
+                    NavigationLink("Saved Albums") {
+                        MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+                    }
+                    Spacer()
                 }
-                NavigationLink("Saved Playlists") {
-                    MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                VStack {
+                    Spacer()
+                    NavigationLink("Saved Playlists") {
+                        MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                    }
+                    Spacer()
                 }
             }
-            .frame(height: 70.0)
         }
         .font(.title)
         .listStyle(.insetGrouped)

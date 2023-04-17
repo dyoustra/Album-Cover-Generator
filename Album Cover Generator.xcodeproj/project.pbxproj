@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17000A4929B07796003BD54C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000A4829B07796003BD54C /* WebView.swift */; };
-		170B651F29E8C66000875EEB /* GenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B651E29E8C66000875EEB /* GenerateView.swift */; };
+		170B651F29E8C66000875EEB /* GenerateAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B651E29E8C66000875EEB /* GenerateAlbumView.swift */; };
 		17B76C7829E7BA3700D36C4B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B76C7729E7BA3700D36C4B /* Home.swift */; };
 		17B76C7A29E7BAFA00D36C4B /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B76C7929E7BAFA00D36C4B /* LibraryView.swift */; };
 		17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */; };
@@ -17,16 +17,28 @@
 		17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */; };
 		17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 17D8349D29A9992A00F498D4 /* SpotifyAPI */; };
 		17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */; };
+		ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */ = {isa = PBXBuildFile; productRef = ED1F3A0C29ECBDC700D66018 /* StableDiffusion */; };
+		ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1129ECC0A900D66018 /* merges.txt */; };
+		ED1F3A1B29ECC0AA00D66018 /* TextEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */; };
+		ED1F3A1C29ECC0AA00D66018 /* Unet.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */; };
+		ED1F3A1D29ECC0AA00D66018 /* VAEEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */; };
+		ED1F3A1E29ECC0AA00D66018 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1529ECC0AA00D66018 /* vocab.json */; };
+		ED1F3A1F29ECC0AA00D66018 /* UnetChunk2.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */; };
+		ED1F3A2029ECC0AA00D66018 /* SafetyChecker.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */; };
+		ED1F3A2129ECC0AA00D66018 /* VAEDecoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */; };
+		ED1F3A2229ECC0AA00D66018 /* UnetChunk1.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */; };
+		ED1F3A2629ECC36900D66018 /* StableDiffusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */; };
 		ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41FAE429C11E39004F7152 /* Spotify.swift */; };
 		ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = ED41FAE729C11F27004F7152 /* KeychainAccess */; };
 		ED590D6929CB620500AC9FB8 /* MusicCollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */; };
 		ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */; };
+		ED719A3A29EBBFED00631FBE /* GeneratePlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */; };
 		EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17000A4829B07796003BD54C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		170B651E29E8C66000875EEB /* GenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateView.swift; sourceTree = "<group>"; };
+		170B651E29E8C66000875EEB /* GenerateAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateAlbumView.swift; sourceTree = "<group>"; };
 		17B76C7729E7BA3700D36C4B /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		17B76C7929E7BAFA00D36C4B /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Album Cover Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,9 +47,20 @@
 		17D8349229A95D7B00F498D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewModel.swift; sourceTree = "<group>"; };
+		ED1F3A1129ECC0A900D66018 /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
+		ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TextEncoder.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEEncoder.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1529ECC0AA00D66018 /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
+		ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UnetChunk2.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SafetyChecker.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEDecoder.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UnetChunk1.mlmodelc; sourceTree = "<group>"; };
+		ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableDiffusionView.swift; sourceTree = "<group>"; };
 		ED41FAE429C11E39004F7152 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionListView.swift; sourceTree = "<group>"; };
 		ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
+		ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePlaylistView.swift; sourceTree = "<group>"; };
 		EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Album-Cover-Generator-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */,
+				ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */,
 				17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,13 +82,15 @@
 		170B652029E8CABD00875EEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED1F3A2429ECC2FC00D66018 /* Stable Diffusion Views */,
 				17000A4829B07796003BD54C /* WebView.swift */,
 				17B76C7929E7BAFA00D36C4B /* LibraryView.swift */,
-				170B651E29E8C66000875EEB /* GenerateView.swift */,
+				170B651E29E8C66000875EEB /* GenerateAlbumView.swift */,
 				ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */,
 				ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */,
 				17D8349029A95D7A00F498D4 /* AuthorizeView.swift */,
 				17B76C7729E7BA3700D36C4B /* Home.swift */,
+				ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -72,6 +98,7 @@
 		170B652129E8CAE300875EEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				ED1F3A1029ECC05500D66018 /* StableDiffusionPrerequisites */,
 				17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */,
 				ED41FAE429C11E39004F7152 /* Spotify.swift */,
 			);
@@ -116,6 +143,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		ED1F3A1029ECC05500D66018 /* StableDiffusionPrerequisites */ = {
+			isa = PBXGroup;
+			children = (
+				ED1F3A1129ECC0A900D66018 /* merges.txt */,
+				ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */,
+				ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */,
+				ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */,
+				ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */,
+				ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */,
+				ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */,
+				ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */,
+				ED1F3A1529ECC0AA00D66018 /* vocab.json */,
+			);
+			path = StableDiffusionPrerequisites;
+			sourceTree = "<group>";
+		};
+		ED1F3A2429ECC2FC00D66018 /* Stable Diffusion Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */,
+			);
+			path = "Stable Diffusion Views";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +186,7 @@
 			packageProductDependencies = (
 				17D8349D29A9992A00F498D4 /* SpotifyAPI */,
 				ED41FAE729C11F27004F7152 /* KeychainAccess */,
+				ED1F3A0C29ECBDC700D66018 /* StableDiffusion */,
 			);
 			productName = "Album Cover Generator";
 			productReference = 17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */;
@@ -167,6 +219,7 @@
 			packageReferences = (
 				17D8349C29A9992A00F498D4 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 				ED41FAE629C11F27004F7152 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				ED1F3A0B29ECBDC600D66018 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */,
 			);
 			productRefGroup = 17D8348C29A95D7A00F498D4 /* Products */;
 			projectDirPath = "";
@@ -182,8 +235,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED1F3A1C29ECC0AA00D66018 /* Unet.mlmodelc in Resources */,
+				ED1F3A2029ECC0AA00D66018 /* SafetyChecker.mlmodelc in Resources */,
+				ED1F3A1B29ECC0AA00D66018 /* TextEncoder.mlmodelc in Resources */,
+				ED1F3A1D29ECC0AA00D66018 /* VAEEncoder.mlmodelc in Resources */,
+				ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */,
 				17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */,
+				ED1F3A1F29ECC0AA00D66018 /* UnetChunk2.mlmodelc in Resources */,
+				ED1F3A1E29ECC0AA00D66018 /* vocab.json in Resources */,
+				ED1F3A2129ECC0AA00D66018 /* VAEDecoder.mlmodelc in Resources */,
 				17D8349329A95D7B00F498D4 /* Assets.xcassets in Resources */,
+				ED1F3A2229ECC0AA00D66018 /* UnetChunk1.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +261,10 @@
 				ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */,
 				ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */,
 				17B76C7829E7BA3700D36C4B /* Home.swift in Sources */,
+				ED719A3A29EBBFED00631FBE /* GeneratePlaylistView.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
-				170B651F29E8C66000875EEB /* GenerateView.swift in Sources */,
+				170B651F29E8C66000875EEB /* GenerateAlbumView.swift in Sources */,
+				ED1F3A2629ECC36900D66018 /* StableDiffusionView.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
 				EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */,
 				17B76C7A29E7BAFA00D36C4B /* LibraryView.swift in Sources */,
@@ -419,6 +483,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		ED1F3A0B29ECBDC600D66018 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/ml-stable-diffusion.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 		ED41FAE629C11F27004F7152 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -434,6 +506,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 17D8349C29A9992A00F498D4 /* XCRemoteSwiftPackageReference "SpotifyAPI" */;
 			productName = SpotifyAPI;
+		};
+		ED1F3A0C29ECBDC700D66018 /* StableDiffusion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED1F3A0B29ECBDC600D66018 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */;
+			productName = StableDiffusion;
 		};
 		ED41FAE729C11F27004F7152 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

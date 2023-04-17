@@ -84,12 +84,24 @@ struct MusicCollectionListView: View {
     }
     
     var refreshButton: some View {
-        Button(action: retrievePlaylists) {
-            Image(systemName: "arrow.clockwise")
-                .font(.title)
-                .scaleEffect(0.8)
+        VStack {
+            switch collectionType {
+            case .Albums:
+                Button(action: retrieveAlbums) {
+                    Image(systemName: "arrow.clockwise")
+                        .font(.title)
+                        .scaleEffect(0.8)
+                }
+                .disabled(isLoadingCollection)
+            case .Playlists:
+                Button(action: retrievePlaylists) {
+                    Image(systemName: "arrow.clockwise")
+                        .font(.title)
+                        .scaleEffect(0.8)
+                }
+                .disabled(isLoadingCollection)
+            }
         }
-        .disabled(isLoadingCollection)
     }
     
     func retrievePlaylists() {
