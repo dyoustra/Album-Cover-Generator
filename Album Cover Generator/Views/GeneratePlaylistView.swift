@@ -127,6 +127,9 @@ struct GeneratePlaylistView: View {
                                 Text(track.name)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .foregroundColor(self.deselectedSongs.contains(track.hashValue) ? .gray : .primary)
+                                if (track.isExplicit) {
+                                    Image(systemName: "e.square.fill")
+                                }
                                 Spacer()
                                 if self.deselectedSongs.contains(track.hashValue) {
                                     Image(systemName: "plus")
@@ -197,9 +200,6 @@ struct GeneratePlaylistView: View {
 
         )
         .store(in: &cancellables)
-
-
-
     }
 }
 

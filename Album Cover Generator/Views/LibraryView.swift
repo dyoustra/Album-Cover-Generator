@@ -16,44 +16,84 @@ struct LibraryView: View {
     @State private var username = ""
     @State private var profilePicURL = URL(string: "")
     
+    @State private var searchText = ""
+    @State private var librarySearchType = "Albums"
+    let libraryTypes = ["Albums", "Playlists"]
+    
+    @State var albums = [Album]()
+    @State var playlists = [Playlist<PlaylistItemsReference>]()
+    
     var body: some View {
         List {
-            Group {
-                VStack {
-                    Spacer()
-                    NavigationLink("Saved Albums") {
-                        MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+            Section {
+                Group {
+                    VStack {
+                        Spacer()
+                        NavigationLink("Saved Albums") {
+                            MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+                        }
+                        Spacer()
                     }
-                    Spacer()
-                }
-                VStack {
-                    Spacer()
-                    NavigationLink("Saved Playlists") {
-                        MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                    VStack {
+                        Spacer()
+                        NavigationLink("Saved Playlists") {
+                            MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                        }
+                        Spacer()
                     }
-                    Spacer()
                 }
             }
+            
+            Section {
+                Picker("", selection: $librarySearchType) {
+                    ForEach(libraryTypes, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .onChange(of: searchText) { _ in
+                    if librarySearchType == "Albums" {
+                        retrieveAlbums()
+                    } else {
+                        retrievePlaylists()
+                    }
+                }
+            }
+            
+            Section {
+                if (librarySearchType == "Albums") {
+                    ForEach(albums, id: \.self) { album in
+                        CollectionCellView(collection: album)
+                    }
+                } else {
+                    ForEach(playlists, id: \.self) { playlist in
+                        CollectionCellView(collection: playlist)
+                    }
+                }
+            }
+            
+            
         }
         .font(.title)
         .listStyle(.insetGrouped)
         .navigationTitle("My Library")
+        .searchable(text: $searchText, prompt: "Search Albums and Playlists")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
                     logOutAlert = true
                 }, label: {
                     AsyncImage(url: profilePicURL) { image in
-                             image
+                        image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-
-                         } placeholder: {
-                             Image(systemName:"person.crop.circle")
-                                 .resizable()
-                         }
-                         .frame(width: 40, height: 40)
+                        
+                    } placeholder: {
+                        Image(systemName:"person.crop.circle")
+                            .resizable()
+                    }
+                    .frame(width: 40, height: 40)
                 })
             }
         }
@@ -79,6 +119,22 @@ struct LibraryView: View {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    func retrieveAlbums() {
+        spotify.api.search(query: searchText, categories: [.album]).sink(receiveCompletion: {_ in
+            
+        }, receiveValue: { album in
+            self.albums = album.albums?.items ?? [Album]()
+        }).store(in: &cancellables)
+    }
+    
+    func retrievePlaylists() {
+        spotify.api.search(query: searchText, categories: [.playlist]).sink(receiveCompletion: {_ in
+            
+        }, receiveValue: { album in
+            self.playlists = album.playlists?.items ?? [Playlist<PlaylistItemsReference>]()
+        }).store(in: &cancellables)
     }
 }
 

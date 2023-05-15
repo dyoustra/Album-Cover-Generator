@@ -24,11 +24,13 @@ struct CollectionCellView: View {
         // MARK: Cancellables
     @State private var loadImageCancellable: AnyCancellable? = nil
     @State private var playPlaylistCancellable: AnyCancellable? = nil
+    
+    @State var isExplicit = false
 
     var body: some View {
         NavigationLink {
             if let album = collection as? Album {
-                GenerateAlbumView(coverImage: self.image, albumCollection: album)
+                GenerateAlbumView(coverImage: self.image, albumCollection: album).environmentObject(spotify)
             }
 
             if let playlist = collection as? Playlist<PlaylistItemsReference> {
@@ -43,13 +45,26 @@ struct CollectionCellView: View {
                     .frame(width: 70, height: 70)
                     .cornerRadius(10)
                 collectionName()
+                if (isExplicit) {
+                    Image(systemName: "e.square.fill")
+                }
                 Spacer()
             }
             // Ensure the hit box extends across the entire width of the frame.
             // See https://bit.ly/2HqNk4S
             .contentShape(Rectangle())
         }
-        .onAppear(perform: loadImage)
+        .onAppear {
+            loadImage()
+            Task {
+                if let album = collection as? Album {
+                    isExplicit = await album.isExplicit(spotify: spotify)
+                } else if let playlist = collection as? Playlist<PlaylistItemsReference> {
+                    isExplicit = await playlist.isExplicit(spotify: spotify)
+                }
+            }
+        }
+        .font(.body)
     }
     
     func collectionName() -> Text {
@@ -102,3 +117,72 @@ struct CollectionCellView: View {
     }
 }
 
+extension Album {
+    func isExplicit(spotify: Spotify) async -> Bool {
+        var loadingTracks = true
+        var tracks = [Track]()
+        var cancellables = [AnyCancellable]()
+        spotify.api.albumTracks(self.uri!).sink(receiveCompletion: { completion in
+            loadingTracks = false
+        }, receiveValue: { albumItems in
+            let items = albumItems.items
+            for item in items {
+                tracks.append(item)
+            }
+        })
+        .store(in: &cancellables)
+        
+        while (loadingTracks) {
+            
+        }
+        
+        
+        let total = tracks.reduce(0, {total, track in
+            if track.isExplicit {
+                return total + 1
+            } else {
+                return total
+            }
+        })
+        if total >= 1 {
+            return true
+        }
+        return false
+    }
+}
+
+extension Playlist<PlaylistItemsReference> {
+    func isExplicit(spotify: Spotify) async -> Bool {
+        var loadingTracks = true
+        var tracks = [Track]()
+        var cancellables = [AnyCancellable]()
+        spotify.api.playlistTracks(self.uri).sink(receiveCompletion: { completion in
+            loadingTracks = false
+        }, receiveValue: { albumItems in
+            let items = albumItems.items
+            for item in items {
+                if let track = item.item {
+                    tracks.append(track)
+                }
+            }
+        })
+        .store(in: &cancellables)
+        
+        while (loadingTracks) {
+            
+        }
+        
+        
+        let total = tracks.reduce(0, {total, track in
+            if track.isExplicit {
+                return total + 1
+            } else {
+                return total
+            }
+        })
+        if total >= 1 {
+            return true
+        }
+        return false
+    }
+}
