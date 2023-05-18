@@ -30,11 +30,11 @@ struct CollectionCellView: View {
     var body: some View {
         NavigationLink {
             if let album = collection as? Album {
-                GenerateAlbumView(coverImage: self.image, albumCollection: album).environmentObject(spotify)
+                GenerateView(coverImage: self.image, collection: album, isPlaylist: false).environmentObject(spotify)
             }
 
             if let playlist = collection as? Playlist<PlaylistItemsReference> {
-                GeneratePlaylistView(coverImage: self.image, playlistCollection: playlist).environmentObject(spotify)
+                GenerateView(coverImage: self.image, collection: playlist, isPlaylist: true).environmentObject(spotify)
             }
 
         } label: {

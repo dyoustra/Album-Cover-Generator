@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17000A4929B07796003BD54C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17000A4829B07796003BD54C /* WebView.swift */; };
-		170B651F29E8C66000875EEB /* GenerateAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B651E29E8C66000875EEB /* GenerateAlbumView.swift */; };
+		170B651F29E8C66000875EEB /* GenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B651E29E8C66000875EEB /* GenerateView.swift */; };
 		17B76C7829E7BA3700D36C4B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B76C7729E7BA3700D36C4B /* Home.swift */; };
 		17B76C7A29E7BAFA00D36C4B /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B76C7929E7BAFA00D36C4B /* LibraryView.swift */; };
 		17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8348E29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift */; };
@@ -17,6 +17,9 @@
 		17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */; };
 		17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 17D8349D29A9992A00F498D4 /* SpotifyAPI */; };
 		17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */; };
+		ED0A53622A12FD7A00AA42B7 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A53612A12FD7A00AA42B7 /* ProgressBar.swift */; };
+		ED0A53642A1571E400AA42B7 /* CompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A53632A1571E400AA42B7 /* CompletedView.swift */; };
+		ED0A53662A158AA200AA42B7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A53652A158AA200AA42B7 /* Launch Screen.storyboard */; };
 		ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */ = {isa = PBXBuildFile; productRef = ED1F3A0C29ECBDC700D66018 /* StableDiffusion */; };
 		ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1129ECC0A900D66018 /* merges.txt */; };
 		ED1F3A1B29ECC0AA00D66018 /* TextEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */; };
@@ -32,13 +35,12 @@
 		ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = ED41FAE729C11F27004F7152 /* KeychainAccess */; };
 		ED590D6929CB620500AC9FB8 /* MusicCollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */; };
 		ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */; };
-		ED719A3A29EBBFED00631FBE /* GeneratePlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */; };
 		EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17000A4829B07796003BD54C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		170B651E29E8C66000875EEB /* GenerateAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateAlbumView.swift; sourceTree = "<group>"; };
+		170B651E29E8C66000875EEB /* GenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateView.swift; sourceTree = "<group>"; };
 		17B76C7729E7BA3700D36C4B /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		17B76C7929E7BAFA00D36C4B /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Album Cover Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,9 @@
 		17D8349229A95D7B00F498D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17D8349529A95D7B00F498D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeViewModel.swift; sourceTree = "<group>"; };
+		ED0A53612A12FD7A00AA42B7 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		ED0A53632A1571E400AA42B7 /* CompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedView.swift; sourceTree = "<group>"; };
+		ED0A53652A158AA200AA42B7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		ED1F3A1129ECC0A900D66018 /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
 		ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TextEncoder.mlmodelc; sourceTree = "<group>"; };
 		ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
@@ -60,7 +65,6 @@
 		ED41FAE429C11E39004F7152 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionListView.swift; sourceTree = "<group>"; };
 		ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
-		ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePlaylistView.swift; sourceTree = "<group>"; };
 		EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Album-Cover-Generator-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,12 +89,14 @@
 				ED1F3A2429ECC2FC00D66018 /* Stable Diffusion Views */,
 				17000A4829B07796003BD54C /* WebView.swift */,
 				17B76C7929E7BAFA00D36C4B /* LibraryView.swift */,
-				170B651E29E8C66000875EEB /* GenerateAlbumView.swift */,
+				170B651E29E8C66000875EEB /* GenerateView.swift */,
 				ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */,
 				ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */,
 				17D8349029A95D7A00F498D4 /* AuthorizeView.swift */,
 				17B76C7729E7BA3700D36C4B /* Home.swift */,
-				ED719A3929EBBFED00631FBE /* GeneratePlaylistView.swift */,
+				ED0A53612A12FD7A00AA42B7 /* ProgressBar.swift */,
+				ED0A53632A1571E400AA42B7 /* CompletedView.swift */,
+				ED0A53652A158AA200AA42B7 /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				ED1F3A1D29ECC0AA00D66018 /* VAEEncoder.mlmodelc in Resources */,
 				ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */,
 				17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */,
+				ED0A53662A158AA200AA42B7 /* Launch Screen.storyboard in Resources */,
 				ED1F3A1F29ECC0AA00D66018 /* UnetChunk2.mlmodelc in Resources */,
 				ED1F3A1E29ECC0AA00D66018 /* vocab.json in Resources */,
 				ED1F3A2129ECC0AA00D66018 /* VAEDecoder.mlmodelc in Resources */,
@@ -261,9 +268,10 @@
 				ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */,
 				ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */,
 				17B76C7829E7BA3700D36C4B /* Home.swift in Sources */,
-				ED719A3A29EBBFED00631FBE /* GeneratePlaylistView.swift in Sources */,
+				ED0A53642A1571E400AA42B7 /* CompletedView.swift in Sources */,
+				ED0A53622A12FD7A00AA42B7 /* ProgressBar.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
-				170B651F29E8C66000875EEB /* GenerateAlbumView.swift in Sources */,
+				170B651F29E8C66000875EEB /* GenerateView.swift in Sources */,
 				ED1F3A2629ECC36900D66018 /* StableDiffusionView.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
 				EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */,
@@ -394,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Album Cover Generator/Preview Content\"";
@@ -401,9 +410,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Album-Cover-Generator-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Music Covers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -425,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Album Cover Generator/Preview Content\"";
@@ -432,9 +444,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Album-Cover-Generator-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Music Covers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

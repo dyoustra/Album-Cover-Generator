@@ -58,6 +58,13 @@ struct LibraryView: View {
                         retrievePlaylists()
                     }
                 }
+                .onChange(of: librarySearchType) { val in
+                    if val == "Albums" {
+                        retrieveAlbums()
+                    } else {
+                        retrievePlaylists()
+                    }
+                }
             }
             
             Section {
@@ -132,8 +139,8 @@ struct LibraryView: View {
     func retrievePlaylists() {
         spotify.api.search(query: searchText, categories: [.playlist]).sink(receiveCompletion: {_ in
             
-        }, receiveValue: { album in
-            self.playlists = album.playlists?.items ?? [Playlist<PlaylistItemsReference>]()
+        }, receiveValue: { playlist in
+            self.playlists = playlist.playlists?.items ?? [Playlist<PlaylistItemsReference>]()
         }).store(in: &cancellables)
     }
 }
