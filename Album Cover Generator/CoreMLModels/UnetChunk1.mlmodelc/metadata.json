@@ -10,7 +10,17 @@
         "formattedType" : "MultiArray (Float32)",
         "shortDescription" : "",
         "shape" : "[]",
-        "name" : "input_169_cast",
+        "name" : "input_7_cast",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "",
+        "shape" : "[]",
+        "name" : "input_171_cast",
         "type" : "MultiArray"
       },
       {
@@ -30,7 +40,7 @@
         "formattedType" : "MultiArray (Float32)",
         "shortDescription" : "",
         "shape" : "[]",
-        "name" : "input_89_cast",
+        "name" : "input_115_cast",
         "type" : "MultiArray"
       },
       {
@@ -40,7 +50,7 @@
         "formattedType" : "MultiArray (Float32)",
         "shortDescription" : "",
         "shape" : "[]",
-        "name" : "input_171_cast",
+        "name" : "input_117_cast",
         "type" : "MultiArray"
       },
       {
@@ -80,16 +90,6 @@
         "formattedType" : "MultiArray (Float32)",
         "shortDescription" : "",
         "shape" : "[]",
-        "name" : "input_7_cast",
-        "type" : "MultiArray"
-      },
-      {
-        "hasShapeFlexibility" : "0",
-        "isOptional" : "0",
-        "dataType" : "Float32",
-        "formattedType" : "MultiArray (Float32)",
-        "shortDescription" : "",
-        "shape" : "[]",
         "name" : "input_63_cast",
         "type" : "MultiArray"
       },
@@ -100,27 +100,7 @@
         "formattedType" : "MultiArray (Float32)",
         "shortDescription" : "",
         "shape" : "[]",
-        "name" : "input_115_cast",
-        "type" : "MultiArray"
-      },
-      {
-        "hasShapeFlexibility" : "0",
-        "isOptional" : "0",
-        "dataType" : "Float32",
-        "formattedType" : "MultiArray (Float32)",
-        "shortDescription" : "",
-        "shape" : "[]",
-        "name" : "input_117_cast",
-        "type" : "MultiArray"
-      },
-      {
-        "hasShapeFlexibility" : "0",
-        "isOptional" : "0",
-        "dataType" : "Float32",
-        "formattedType" : "MultiArray (Float32)",
-        "shortDescription" : "",
-        "shape" : "[]",
-        "name" : "hidden_states_149_cast",
+        "name" : "input_89_cast",
         "type" : "MultiArray"
       },
       {
@@ -132,6 +112,26 @@
         "shape" : "[]",
         "name" : "input_15_cast",
         "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "",
+        "shape" : "[]",
+        "name" : "input_169_cast",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32)",
+        "shortDescription" : "",
+        "shape" : "[]",
+        "name" : "hidden_states_149_cast",
+        "type" : "MultiArray"
       }
     ],
     "modelParameters" : [
@@ -142,7 +142,7 @@
       "Transpose" : 14,
       "Ios16.reduceMean" : 104,
       "Ios16.sin" : 1,
-      "Ios16.softmax" : 112,
+      "Ios16.softmax" : 180,
       "Split" : 7,
       "Ios16.add" : 124,
       "Concat" : 18,
@@ -152,15 +152,15 @@
       "Ios16.sub" : 52,
       "Ios16.cast" : 13,
       "Ios16.conv" : 129,
-      "Ios16.einsum" : 224,
+      "Ios16.einsum" : 360,
       "Ios16.gelu" : 7,
       "Ios16.reshape" : 76,
       "Ios16.batchNorm" : 31,
       "Ios16.rsqrt" : 21,
       "Ios16.silu" : 26,
       "Ios16.sqrt" : 31,
-      "SliceByIndex" : 338,
-      "Ios16.mul" : 183,
+      "SliceByIndex" : 542,
+      "Ios16.mul" : 251,
       "Ios16.cos" : 1
     },
     "computePrecision" : "Mixed (Float32, Float16, Int32)",
@@ -203,14 +203,14 @@
         "hasShapeFlexibility" : "0",
         "isOptional" : "0",
         "dataType" : "Float16",
-        "formattedType" : "MultiArray (Float16 2 × 768 × 1 × 77)",
+        "formattedType" : "MultiArray (Float16 2 × 1024 × 1 × 77)",
         "shortDescription" : "",
-        "shape" : "[2, 768, 1, 77]",
+        "shape" : "[2, 1024, 1, 77]",
         "name" : "encoder_hidden_states",
         "type" : "MultiArray"
       }
     ],
-    "generatedClassName" : "Stable_Diffusion_version_CompVis_stable_diffusion_v1_4_unet_chunk1",
+    "generatedClassName" : "Stable_Diffusion_version_stabilityai_stable_diffusion_2_1_base_unet_chunk1",
     "method" : "predict"
   }
 ]

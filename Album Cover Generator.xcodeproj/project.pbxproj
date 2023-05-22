@@ -20,22 +20,26 @@
 		ED0A53622A12FD7A00AA42B7 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A53612A12FD7A00AA42B7 /* ProgressBar.swift */; };
 		ED0A53642A1571E400AA42B7 /* CompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0A53632A1571E400AA42B7 /* CompletedView.swift */; };
 		ED0A53662A158AA200AA42B7 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED0A53652A158AA200AA42B7 /* Launch Screen.storyboard */; };
+		ED0A53692A18102B00AA42B7 /* CoreMLModels in Resources */ = {isa = PBXBuildFile; fileRef = ED0A53682A18102B00AA42B7 /* CoreMLModels */; };
 		ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */ = {isa = PBXBuildFile; productRef = ED1F3A0C29ECBDC700D66018 /* StableDiffusion */; };
-		ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1129ECC0A900D66018 /* merges.txt */; };
-		ED1F3A1B29ECC0AA00D66018 /* TextEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */; };
-		ED1F3A1C29ECC0AA00D66018 /* Unet.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */; };
-		ED1F3A1D29ECC0AA00D66018 /* VAEEncoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */; };
-		ED1F3A1E29ECC0AA00D66018 /* vocab.json in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1529ECC0AA00D66018 /* vocab.json */; };
-		ED1F3A1F29ECC0AA00D66018 /* UnetChunk2.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */; };
-		ED1F3A2029ECC0AA00D66018 /* SafetyChecker.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */; };
-		ED1F3A2129ECC0AA00D66018 /* VAEDecoder.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */; };
-		ED1F3A2229ECC0AA00D66018 /* UnetChunk1.mlmodelc in Resources */ = {isa = PBXBuildFile; fileRef = ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */; };
 		ED1F3A2629ECC36900D66018 /* StableDiffusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */; };
+		ED2EAAFE2A1812ED0023DE19 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EAAFD2A1812ED0023DE19 /* ImageGenerator.swift */; };
+		ED2EAB002A1817BF0023DE19 /* PromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EAAFF2A1817BF0023DE19 /* PromptView.swift */; };
+		ED2EAB022A18189A0023DE19 /* TextToImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2EAB012A18189A0023DE19 /* TextToImageView.swift */; };
 		ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41FAE429C11E39004F7152 /* Spotify.swift */; };
 		ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = ED41FAE729C11F27004F7152 /* KeychainAccess */; };
 		ED590D6929CB620500AC9FB8 /* MusicCollectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */; };
 		ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */; };
 		EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */; };
+		EDCB99342A19936100CA2BE2 /* Path in Frameworks */ = {isa = PBXBuildFile; productRef = EDCB99332A19936100CA2BE2 /* Path */; };
+		EDCB99372A19937700CA2BE2 /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = EDCB99362A19937700CA2BE2 /* CompactSlider */; };
+		EDCB993A2A1993BC00CA2BE2 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = EDCB99392A1993BC00CA2BE2 /* ZIPFoundation */; };
+		EDCB99402A1994CE00CA2BE2 /* Pipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB993E2A1994CE00CA2BE2 /* Pipeline.swift */; };
+		EDCB99412A1994CE00CA2BE2 /* PipelineLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB993F2A1994CE00CA2BE2 /* PipelineLoader.swift */; };
+		EDCB99462A1994EF00CA2BE2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99422A1994EE00CA2BE2 /* Utils.swift */; };
+		EDCB99472A1994EF00CA2BE2 /* ModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99432A1994EE00CA2BE2 /* ModelInfo.swift */; };
+		EDCB99482A1994EF00CA2BE2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99442A1994EE00CA2BE2 /* State.swift */; };
+		EDCB99492A1994EF00CA2BE2 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99452A1994EF00CA2BE2 /* Downloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,21 +56,23 @@
 		ED0A53612A12FD7A00AA42B7 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		ED0A53632A1571E400AA42B7 /* CompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedView.swift; sourceTree = "<group>"; };
 		ED0A53652A158AA200AA42B7 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		ED1F3A1129ECC0A900D66018 /* merges.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = merges.txt; sourceTree = "<group>"; };
-		ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TextEncoder.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Unet.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEEncoder.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1529ECC0AA00D66018 /* vocab.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vocab.json; sourceTree = "<group>"; };
-		ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UnetChunk2.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SafetyChecker.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = VAEDecoder.mlmodelc; sourceTree = "<group>"; };
-		ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UnetChunk1.mlmodelc; sourceTree = "<group>"; };
+		ED0A53682A18102B00AA42B7 /* CoreMLModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreMLModels; sourceTree = "<group>"; };
 		ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StableDiffusionView.swift; sourceTree = "<group>"; };
+		ED2EAAFB2A1811BC0023DE19 /* Album Cover Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Album Cover Generator.entitlements"; sourceTree = "<group>"; };
+		ED2EAAFD2A1812ED0023DE19 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		ED2EAAFF2A1817BF0023DE19 /* PromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptView.swift; sourceTree = "<group>"; };
+		ED2EAB012A18189A0023DE19 /* TextToImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImageView.swift; sourceTree = "<group>"; };
 		ED41FAE429C11E39004F7152 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
 		ED590D6829CB620500AC9FB8 /* MusicCollectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionListView.swift; sourceTree = "<group>"; };
 		ED590D6A29CB6EFE00AC9FB8 /* CollectionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Album-Cover-Generator-Info.plist"; sourceTree = SOURCE_ROOT; };
 		EDB5D0B229B0628A002BE308 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
+		EDCB993E2A1994CE00CA2BE2 /* Pipeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipeline.swift; sourceTree = "<group>"; };
+		EDCB993F2A1994CE00CA2BE2 /* PipelineLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PipelineLoader.swift; sourceTree = "<group>"; };
+		EDCB99422A1994EE00CA2BE2 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		EDCB99432A1994EE00CA2BE2 /* ModelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelInfo.swift; sourceTree = "<group>"; };
+		EDCB99442A1994EE00CA2BE2 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		EDCB99452A1994EF00CA2BE2 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +81,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED41FAE829C11F27004F7152 /* KeychainAccess in Frameworks */,
+				EDCB99342A19936100CA2BE2 /* Path in Frameworks */,
 				ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */,
 				17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */,
+				EDCB99372A19937700CA2BE2 /* CompactSlider in Frameworks */,
+				EDCB993A2A1993BC00CA2BE2 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +113,6 @@
 		170B652129E8CAE300875EEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				ED1F3A1029ECC05500D66018 /* StableDiffusionPrerequisites */,
 				17D8349F29A9A16700F498D4 /* AuthorizeViewModel.swift */,
 				ED41FAE429C11E39004F7152 /* Spotify.swift */,
 			);
@@ -130,6 +138,14 @@
 		17D8348D29A95D7A00F498D4 /* Album Cover Generator */ = {
 			isa = PBXGroup;
 			children = (
+				EDCB99452A1994EF00CA2BE2 /* Downloader.swift */,
+				EDCB99432A1994EE00CA2BE2 /* ModelInfo.swift */,
+				EDCB99442A1994EE00CA2BE2 /* State.swift */,
+				EDCB99422A1994EE00CA2BE2 /* Utils.swift */,
+				EDCB993B2A19949C00CA2BE2 /* Pipeline */,
+				ED2EAAFC2A1812DB0023DE19 /* ImageGeneration */,
+				ED2EAAFB2A1811BC0023DE19 /* Album Cover Generator.entitlements */,
+				ED0A53682A18102B00AA42B7 /* CoreMLModels */,
 				170B652129E8CAE300875EEB /* Models */,
 				170B652029E8CABD00875EEB /* Views */,
 				EDB5D0B129B030CB002BE308 /* Album-Cover-Generator-Info.plist */,
@@ -149,28 +165,31 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ED1F3A1029ECC05500D66018 /* StableDiffusionPrerequisites */ = {
-			isa = PBXGroup;
-			children = (
-				ED1F3A1129ECC0A900D66018 /* merges.txt */,
-				ED1F3A1729ECC0AA00D66018 /* SafetyChecker.mlmodelc */,
-				ED1F3A1229ECC0A900D66018 /* TextEncoder.mlmodelc */,
-				ED1F3A1329ECC0AA00D66018 /* Unet.mlmodelc */,
-				ED1F3A1929ECC0AA00D66018 /* UnetChunk1.mlmodelc */,
-				ED1F3A1629ECC0AA00D66018 /* UnetChunk2.mlmodelc */,
-				ED1F3A1829ECC0AA00D66018 /* VAEDecoder.mlmodelc */,
-				ED1F3A1429ECC0AA00D66018 /* VAEEncoder.mlmodelc */,
-				ED1F3A1529ECC0AA00D66018 /* vocab.json */,
-			);
-			path = StableDiffusionPrerequisites;
-			sourceTree = "<group>";
-		};
 		ED1F3A2429ECC2FC00D66018 /* Stable Diffusion Views */ = {
 			isa = PBXGroup;
 			children = (
 				ED1F3A2529ECC36900D66018 /* StableDiffusionView.swift */,
 			);
 			path = "Stable Diffusion Views";
+			sourceTree = "<group>";
+		};
+		ED2EAAFC2A1812DB0023DE19 /* ImageGeneration */ = {
+			isa = PBXGroup;
+			children = (
+				ED2EAAFD2A1812ED0023DE19 /* ImageGenerator.swift */,
+				ED2EAAFF2A1817BF0023DE19 /* PromptView.swift */,
+				ED2EAB012A18189A0023DE19 /* TextToImageView.swift */,
+			);
+			path = ImageGeneration;
+			sourceTree = "<group>";
+		};
+		EDCB993B2A19949C00CA2BE2 /* Pipeline */ = {
+			isa = PBXGroup;
+			children = (
+				EDCB993E2A1994CE00CA2BE2 /* Pipeline.swift */,
+				EDCB993F2A1994CE00CA2BE2 /* PipelineLoader.swift */,
+			);
+			path = Pipeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +212,9 @@
 				17D8349D29A9992A00F498D4 /* SpotifyAPI */,
 				ED41FAE729C11F27004F7152 /* KeychainAccess */,
 				ED1F3A0C29ECBDC700D66018 /* StableDiffusion */,
+				EDCB99332A19936100CA2BE2 /* Path */,
+				EDCB99362A19937700CA2BE2 /* CompactSlider */,
+				EDCB99392A1993BC00CA2BE2 /* ZIPFoundation */,
 			);
 			productName = "Album Cover Generator";
 			productReference = 17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */;
@@ -226,6 +248,9 @@
 				17D8349C29A9992A00F498D4 /* XCRemoteSwiftPackageReference "SpotifyAPI" */,
 				ED41FAE629C11F27004F7152 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				ED1F3A0B29ECBDC600D66018 /* XCRemoteSwiftPackageReference "ml-stable-diffusion" */,
+				EDCB99322A19936100CA2BE2 /* XCRemoteSwiftPackageReference "Path.swift" */,
+				EDCB99352A19937700CA2BE2 /* XCRemoteSwiftPackageReference "CompactSlider" */,
+				EDCB99382A1993BB00CA2BE2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 			);
 			productRefGroup = 17D8348C29A95D7A00F498D4 /* Products */;
 			projectDirPath = "";
@@ -241,18 +266,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED1F3A1C29ECC0AA00D66018 /* Unet.mlmodelc in Resources */,
-				ED1F3A2029ECC0AA00D66018 /* SafetyChecker.mlmodelc in Resources */,
-				ED1F3A1B29ECC0AA00D66018 /* TextEncoder.mlmodelc in Resources */,
-				ED1F3A1D29ECC0AA00D66018 /* VAEEncoder.mlmodelc in Resources */,
-				ED1F3A1A29ECC0AA00D66018 /* merges.txt in Resources */,
 				17D8349629A95D7B00F498D4 /* Preview Assets.xcassets in Resources */,
 				ED0A53662A158AA200AA42B7 /* Launch Screen.storyboard in Resources */,
-				ED1F3A1F29ECC0AA00D66018 /* UnetChunk2.mlmodelc in Resources */,
-				ED1F3A1E29ECC0AA00D66018 /* vocab.json in Resources */,
-				ED1F3A2129ECC0AA00D66018 /* VAEDecoder.mlmodelc in Resources */,
+				ED0A53692A18102B00AA42B7 /* CoreMLModels in Resources */,
 				17D8349329A95D7B00F498D4 /* Assets.xcassets in Resources */,
-				ED1F3A2229ECC0AA00D66018 /* UnetChunk1.mlmodelc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,18 +281,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D8349129A95D7A00F498D4 /* AuthorizeView.swift in Sources */,
+				ED2EAAFE2A1812ED0023DE19 /* ImageGenerator.swift in Sources */,
 				17000A4929B07796003BD54C /* WebView.swift in Sources */,
+				EDCB99482A1994EF00CA2BE2 /* State.swift in Sources */,
+				EDCB99472A1994EF00CA2BE2 /* ModelInfo.swift in Sources */,
 				ED590D6B29CB6EFE00AC9FB8 /* CollectionCellView.swift in Sources */,
 				ED41FAE529C11E39004F7152 /* Spotify.swift in Sources */,
+				ED2EAB022A18189A0023DE19 /* TextToImageView.swift in Sources */,
 				17B76C7829E7BA3700D36C4B /* Home.swift in Sources */,
 				ED0A53642A1571E400AA42B7 /* CompletedView.swift in Sources */,
 				ED0A53622A12FD7A00AA42B7 /* ProgressBar.swift in Sources */,
+				EDCB99402A1994CE00CA2BE2 /* Pipeline.swift in Sources */,
+				ED2EAB002A1817BF0023DE19 /* PromptView.swift in Sources */,
+				EDCB99412A1994CE00CA2BE2 /* PipelineLoader.swift in Sources */,
 				17D8348F29A95D7A00F498D4 /* Album_Cover_GeneratorApp.swift in Sources */,
 				170B651F29E8C66000875EEB /* GenerateView.swift in Sources */,
 				ED1F3A2629ECC36900D66018 /* StableDiffusionView.swift in Sources */,
+				EDCB99462A1994EF00CA2BE2 /* Utils.swift in Sources */,
 				17D834A029A9A16700F498D4 /* AuthorizeViewModel.swift in Sources */,
 				EDB5D0B329B0628B002BE308 /* DeepLinkManager.swift in Sources */,
 				17B76C7A29E7BAFA00D36C4B /* LibraryView.swift in Sources */,
+				EDCB99492A1994EF00CA2BE2 /* Downloader.swift in Sources */,
 				ED590D6929CB620500AC9FB8 /* MusicCollectionListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -387,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -403,6 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Album Cover Generator/Album Cover Generator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Album Cover Generator/Preview Content\"";
@@ -417,7 +444,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,6 +464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = "Album Cover Generator/Album Cover Generator.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Album Cover Generator/Preview Content\"";
@@ -451,7 +479,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,6 +541,30 @@
 				kind = branch;
 			};
 		};
+		EDCB99322A19936100CA2BE2 /* XCRemoteSwiftPackageReference "Path.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/Path.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		EDCB99352A19937700CA2BE2 /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buh/CompactSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		EDCB99382A1993BB00CA2BE2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.16;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,6 +582,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ED41FAE629C11F27004F7152 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		EDCB99332A19936100CA2BE2 /* Path */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDCB99322A19936100CA2BE2 /* XCRemoteSwiftPackageReference "Path.swift" */;
+			productName = Path;
+		};
+		EDCB99362A19937700CA2BE2 /* CompactSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDCB99352A19937700CA2BE2 /* XCRemoteSwiftPackageReference "CompactSlider" */;
+			productName = CompactSlider;
+		};
+		EDCB99392A1993BC00CA2BE2 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDCB99382A1993BB00CA2BE2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

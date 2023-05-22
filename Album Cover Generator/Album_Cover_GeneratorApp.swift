@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct Album_Cover_GeneratorApp: App {
@@ -54,3 +55,5 @@ struct RootView: View {
         }
     }
 }
+
+let runningOnMac = ProcessInfo.processInfo.isMacCatalystApp

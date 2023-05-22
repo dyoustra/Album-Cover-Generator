@@ -29,12 +29,14 @@ struct CollectionCellView: View {
 
     var body: some View {
         NavigationLink {
-            if let album = collection as? Album {
-                GenerateView(coverImage: self.image, collection: album, isPlaylist: false).environmentObject(spotify)
-            }
+            if #available(iOS 16.2, *) {
+                if let album = collection as? Album {
+                    GenerateView(coverImage: self.image, collection: album, isPlaylist: false).environmentObject(spotify)
+                }
 
-            if let playlist = collection as? Playlist<PlaylistItemsReference> {
-                GenerateView(coverImage: self.image, collection: playlist, isPlaylist: true).environmentObject(spotify)
+                if let playlist = collection as? Playlist<PlaylistItemsReference> {
+                    GenerateView(coverImage: self.image, collection: playlist, isPlaylist: true).environmentObject(spotify)
+                }
             }
 
         } label: {
@@ -132,6 +134,7 @@ extension Album {
         })
         .store(in: &cancellables)
         
+        
         while (loadingTracks) {
             
         }
@@ -152,6 +155,25 @@ extension Album {
 }
 
 extension Playlist<PlaylistItemsReference> {
+    
+    func loadPlaylists(spotify: Spotify) async -> [Track] {
+        var tracks = [Track]()
+        var cancellables = [AnyCancellable]()
+        spotify.api.playlistTracks(self.uri).sink(receiveCompletion: { completion in
+            
+        }, receiveValue: { albumItems in
+            let items = albumItems.items
+            for item in items {
+                if let track = item.item {
+                    tracks.append(track)
+                }
+            }
+        })
+        .store(in: &cancellables)
+        
+        return tracks
+    }
+    
     func isExplicit(spotify: Spotify) async -> Bool {
         var loadingTracks = true
         var tracks = [Track]()

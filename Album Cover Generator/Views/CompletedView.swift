@@ -12,7 +12,7 @@ struct CompletedView: View {
     
     @EnvironmentObject var spotify: Spotify
 
-    let coverImage: Image
+    let generatedImage: Image
     let collectionName : String
     let isPlaylist : Bool
     
@@ -26,14 +26,14 @@ struct CompletedView: View {
     
     var body: some View {
         VStack {
-            coverImage
+            generatedImage
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(50)
                 .shadow(radius: 20)
                 .padding()
                 .onAppear {
-                    let renderer = ImageRenderer(content: coverImage)
+                    let renderer = ImageRenderer(content: generatedImage)
                     renderer.scale = 3
                     if let image = renderer.cgImage {
                         renderedImage = Image(decorative: image, scale: 1.0)

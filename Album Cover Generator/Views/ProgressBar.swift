@@ -10,11 +10,11 @@ import SwiftUI
 struct ProgressBar: View {
     @Environment(\.colorScheme) var colorScheme
     
-    @State var percent : CGFloat = 0.0 / 100.0
+    @Binding var percent : Double
     var timer = Timer.publish(every: 0.3, on: .main, in: .common).autoconnect()
     
-    @Binding var displayNextView : Bool
-    @Binding var generatePressed : Bool
+//    @Binding var displayNextView : Bool
+//    @Binding var generatePressed : Bool
     
     var primary = Color(red: 255/255, green: 200/255, blue: 200/255)
     var secondary = Color(red: 255/255, green: 215/255, blue: 202/255)
@@ -38,16 +38,16 @@ struct ProgressBar: View {
                     .bold()
             }
         }
-        .onReceive(timer) { time in
-            withAnimation(.default) {
-                percent = percent + 5.0 / 100.0
-            }
-            if percent * 100 >= 100.0 {
-                timer.upstream.connect().cancel()
-                displayNextView = true
-                generatePressed = false
-            }
-        }
+//        .onReceive(timer) { time in
+//            withAnimation(.default) {
+//                percent = percent + 5.0 / 100.0
+//            }
+//            if percent * 100 >= 100.0 {
+//                timer.upstream.connect().cancel()
+////                displayNextView = true
+////                generatePressed = false
+//            }
+//        }
     }
 }
 
