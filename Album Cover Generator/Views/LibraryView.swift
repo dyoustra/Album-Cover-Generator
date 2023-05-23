@@ -25,30 +25,6 @@ struct LibraryView: View {
     @State var playlists = [Playlist<PlaylistItemsReference>]()
     
     var body: some View {
-            } else {
-                Section {
-                        Picker("", selection: $librarySearchType) {
-                            ForEach(libraryTypes, id: \.self) {
-                                Text($0)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-                        .onChange(of: searchText) { _ in
-                            if librarySearchType == "Albums" {
-                                retrieveAlbums()
-                            } else {
-                                retrievePlaylists()
-                            }
-                        }
-                        .onChange(of: librarySearchType) { val in
-                            if val == "Albums" {
-                                retrieveAlbums()
-                            } else {
-                                retrievePlaylists()
-                            }
-                        }
-                    }
-                    
         VStack {
             if logOut {
                 AuthorizeView().environmentObject(spotify)
@@ -78,6 +54,7 @@ struct LibraryView: View {
                             }
                         }
                     }
+                    
                     Section {
                         Group {
                             VStack {
