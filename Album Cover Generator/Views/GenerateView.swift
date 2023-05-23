@@ -9,6 +9,7 @@ import SwiftUI
 import SpotifyWebAPI
 import StableDiffusion
 import CoreML
+import SpotifyExampleContent
 import Combine
 
 enum GenerationOptions: String, CaseIterable, Identifiable {
@@ -72,7 +73,92 @@ struct OptionsView: View {
             }
         }
         .presentationDetents(isPlaylist ? [.height(UIScreen.main.bounds.size.height/1.5)] : [.height(UIScreen.main.bounds.size.height/2.15)])
-        .interactiveDismissDisabled()
+    }
+}
+
+struct InfoView: View {
+    let collection: Any
+    @Binding var optionToggles: [Bool]
+    @Binding var showOptions: Bool
+    @EnvironmentObject var spotify: Spotify
+    
+    let vStackSpacing = 5.0
+    
+    @State var artistImage = Image(systemName: "music.mic")
+    @State var cancellables: [AnyCancellable] = []
+
+    var body: some View {
+        if let album = collection as? Album {
+            VStack(spacing: vStackSpacing) {
+                Text(album.name)
+                    .font(.largeTitle)
+                    .lineLimit(3)
+                    .bold()
+                HStack {
+                    artistImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(artistImage == Image(systemName: "music.mic") ? AnyShape(Rectangle()) : AnyShape(Circle()))
+                        .onReceive(spotify.api.getFromHref(album.artists!.first!.href!, responseType: Artist.self).assertNoFailure().receive(on: DispatchQueue.main), perform: { artist in
+                            artist.images?.largest?.load().assertNoFailure().receive(on: DispatchQueue.main).sink(receiveValue: { image in
+                                artistImage = image
+                            }).store(in: &cancellables)
+                        })
+                    ForEach(album.artists ?? [Artist(name: "No Artist")], id: \.id) { artist in
+                        Text(artist.name)
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                    }
+                }
+                .foregroundColor(.secondary)
+                .frame(height: 30)
+                .sheet(isPresented: $showOptions) {
+                    OptionsView(isPlaylist: false, toggles: $optionToggles, showOptions: $showOptions)
+                }
+            }
+            
+        } else if let playlist = collection as? Playlist<PlaylistItemsReference> {
+            VStack(spacing: vStackSpacing) {
+                Text(playlist.name)
+                    .font(.largeTitle)
+                    .bold()
+                HStack {
+                    artistImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(artistImage == Image(systemName: "music.mic") ? AnyShape(Rectangle()) : AnyShape(Circle()))
+                        .onReceive(spotify.api.getFromHref(playlist.owner!.href, responseType: SpotifyUser.self).assertNoFailure().receive(on: DispatchQueue.main), perform: { user in
+                            user.images?.largest?.load().assertNoFailure().receive(on: DispatchQueue.main).sink(receiveValue: { image in
+                                artistImage = image
+                            }).store(in: &cancellables)
+                        })
+                    
+                    Text(playlist.owner?.displayName ?? "Unknown Owner")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                }
+                .foregroundColor(.secondary)
+                .frame(height: 30)
+                .sheet(isPresented: $showOptions) {
+                    OptionsView(isPlaylist: true, toggles: $optionToggles, showOptions: $showOptions)
+                }
+            }
+        }
+    }
+}
+
+struct TrackItem: Identifiable {
+    let spotifyTrack: Track
+    var enabled = true
+    var image: Image
+    
+    init(_ spotifyTrack: Track, image: Image) {
+        self.spotifyTrack = spotifyTrack
+        self.image = image
+    }
+    
+    var id: String {
+        spotifyTrack.id ?? spotifyTrack.name
     }
 }
 
@@ -110,29 +196,24 @@ struct GenerateOverlay : View {
 
 let model = ModelInfo.v2Base
 
-@available(iOS 16.2, *)
 struct GenerateView: View {
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var spotify : Spotify
     
+    // VIEW ARGUMENTS
     let coverImage: Image
-    
     let collection: Any
     let isPlaylist: Bool
     
-    
-    @State var tracks : [Track] = []
+    // Track, then is that track enabled
+    @State var tracks: [TrackItem] = []
     
     @State private var cancellables: Set<AnyCancellable> = []
-    @State private var loadingTracks : Bool = true
-    @State private var couldntLoadTracks : Bool = false
+    @State private var loadingTracks: Bool = true
+    @State private var couldntLoadTracks: Bool = false
 
     @State var showOptions : Bool = false
-
-    @State var deselectedSongs: [Int] = []
-
-    
-    @State private var toggles: [Bool] = [false, false, false, false, false, false, false]
+    @State private var optionToggles: [Bool] = Array(repeating: true, count: GenerationOptions.allCases.count)
     
     @State var generatePressed = false
     @State var displayCompletedView = false
@@ -157,53 +238,16 @@ struct GenerateView: View {
     @State var generatedImage = Image("App Logo (AI Music Covers)")
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
+        ScrollView(showsIndicators: true) {
+            VStack() {
                 coverImage
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(50)
                     .shadow(radius: 20)
-                if let albumCollection = collection as? Album {
-                    Text(albumCollection.name)
-                        .font(.largeTitle)
-                        .bold()
-                    HStack {
-                        Image(systemName: "music.mic")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        ForEach(albumCollection.artists ?? [Artist(name: "No Artist")], id: \.id) { artist in
-                            Text(artist.name)
-                                .font(.title2)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.secondary)
-                        }
-                    }
-                    .frame(height: 30)
-                    .sheet(isPresented: $showOptions) {
-                        OptionsView(isPlaylist: false, toggles: $toggles, showOptions: $showOptions)
-                    }
-                } else if let playlistCollection = collection as? Playlist<PlaylistItemsReference> {
-                    Text(playlistCollection.name)
-                        .font(.largeTitle)
-                        .bold()
-                    HStack {
-                        Image(systemName: "music.mic")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        Text(playlistCollection.owner?.displayName ?? "Your Playlist")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color.secondary)
-                    }
-                    .frame(height: 30)
-                    .sheet(isPresented: $showOptions) {
-                        OptionsView(isPlaylist: true, toggles: $toggles, showOptions: $showOptions)
-                    }
-                }
                 
-                Spacer()
-
+                InfoView(collection: collection, optionToggles: $optionToggles, showOptions: $showOptions)
+                
                 Button(action: {
                     withAnimation(.linear) {
                         generatePressed = true
@@ -226,10 +270,9 @@ struct GenerateView: View {
                         CompletedView(generatedImage: generatedImage, collectionName: playlist.name, isPlaylist: true, displayCompletedView: $displayCompletedView)
                     }
                 }
-            }
-            .padding(.all)
-            
-            List {
+                
+                Divider()
+                
                 if loadingTracks {
                     HStack {
                         ProgressView()
@@ -244,16 +287,32 @@ struct GenerateView: View {
                         .font(.title)
                         .foregroundColor(.secondary)
                 }
-                else if !loadingTracks {
+                else {
                     VStack {
-                        ForEach(tracks, id: \.id) { track in
-                            TrackView(coverImage: coverImage, track: track, deselectedSongs: $deselectedSongs, generatePressed: $generatePressed)
+                        ForEach($tracks) { $track in
+                            Toggle(isOn: $track.enabled) {
+                                HStack {
+                                    track.image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .cornerRadius(10)
+                                        .frame(width: 70, height: 70)
+                                        .shadow(radius: track.enabled || generatePressed ? 10 : 0)
+                                    Text(track.spotifyTrack.name)
+                                        .foregroundColor(!track.enabled || generatePressed ? .secondary : .primary)
+                                        .lineLimit(3)
+                                    if (track.spotifyTrack.isExplicit) {
+                                        Image(systemName: "e.square.fill")
+                                            .foregroundColor(!track.enabled || generatePressed ? .secondary : .primary)
+                                    }
+                                }
+                            }
+                            Divider()
                         }
                     }
                 }
             }
-            .scaledToFit()
-            .listStyle(.inset)
+            .padding(.all)
         }
         .navigationBarItems(trailing:
             VStack {
@@ -370,7 +429,7 @@ struct GenerateView: View {
             }, receiveValue: { albumItems in
                 let items = albumItems.items
                 for item in items {
-                    tracks.append(item)
+                    tracks.append(TrackItem(item, image: coverImage))
                 }
             }
 
@@ -394,7 +453,12 @@ struct GenerateView: View {
                 for item in items {
                     let track = item.item
                     if let trackItem = track {
-                        tracks.append(trackItem)
+                        var newTrack = TrackItem(trackItem, image: coverImage)
+                        newTrack.spotifyTrack.album!.images!.largest!.load().assertNoFailure().receive(on: DispatchQueue.main).sink { image in
+                            newTrack.image = image
+                            tracks.append(newTrack)
+                        }.store(in: &cancellables)
+                        
                     }
                 }
 
@@ -406,56 +470,41 @@ struct GenerateView: View {
     }
 }
 
-struct TrackView : View {
-    let coverImage : Image
-    let track : Track
+struct GenerateView_Previews: PreviewProvider {
+    static let spotify = Spotify()
+    static let album = Album.darkSideOfTheMoon
+    static let playlist = Playlist<PlaylistItemsReference>.thisIsMFDoom
+    static var image = Image(uiImage: UIImage(named: "AppIcon") ?? UIImage())
     
-    @Binding var deselectedSongs : [Int]
-    @Binding var generatePressed : Bool
+    static var loadImageCancellable: AnyCancellable? = nil
     
-    var body: some View {
-        HStack {
-            coverImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .cornerRadius(10)
-                .frame(width: 70, height: 70)
-                .shadow(radius: self.deselectedSongs.contains(track.hashValue) || generatePressed ? 10 : 0)
-            Text(track.name)
-                .fixedSize(horizontal: false, vertical: true)
-                .foregroundColor(self.deselectedSongs.contains(track.hashValue) || generatePressed ? .gray : .primary)
-            if (track.isExplicit) {
-                Image(systemName: "e.square.fill")
-                    .foregroundColor(self.deselectedSongs.contains(track.hashValue) || generatePressed ? .gray : .primary)
-            }
-            Spacer()
-            if self.deselectedSongs.contains(track.hashValue) && !generatePressed {
-                Image(systemName: "plus")
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            updateTrackSelection()
-                        }
-                    }
-            } else if !generatePressed {
-                Image(systemName: "trash")
-                    .foregroundColor(.red)
-                    .onTapGesture {
-                        withAnimation(.spring()) {
-                            updateTrackSelection()
-                        }
-                    }
+    static var previews: some View {
+        NavigationView {
+            GenerateView(
+                coverImage: image,
+                collection: album,
+                isPlaylist: false
+            )
+            .environmentObject(spotify)
+            .onAppear {
+                loadImage()
             }
         }
-        Divider()
     }
     
-    func updateTrackSelection() {
-        if self.deselectedSongs.contains(track.hashValue) {
-            self.deselectedSongs.remove(at: self.deselectedSongs.firstIndex(of: track.hashValue)!)
-        } else {
-            self.deselectedSongs.append(track.hashValue)
-        }
+    static func loadImage() {
+        
+        // or playlist.Playlist<PlaylistItemsReference>
+        let spotifyImage = album.images!.largest!
+        
+        self.loadImageCancellable = spotifyImage.load()
+            .receive(on: RunLoop.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { image in
+                    // print("received image for '\(playlist.name)'")
+                    self.image = image
+                }
+            )
     }
 }
-

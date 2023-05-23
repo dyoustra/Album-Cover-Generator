@@ -194,7 +194,6 @@ extension Playlist<PlaylistItemsReference> {
             
         }
         
-        
         let total = tracks.reduce(0, {total, track in
             if track.isExplicit {
                 return total + 1

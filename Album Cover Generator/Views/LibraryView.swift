@@ -26,25 +26,6 @@ struct LibraryView: View {
     var body: some View {
         List {
             Section {
-                Group {
-                    VStack {
-                        Spacer()
-                        NavigationLink("Saved Albums") {
-                            MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
-                        }
-                        Spacer()
-                    }
-                    VStack {
-                        Spacer()
-                        NavigationLink("Saved Playlists") {
-                            MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
-                        }
-                        Spacer()
-                    }
-                }
-            }
-            
-            Section {
                 Picker("", selection: $librarySearchType) {
                     ForEach(libraryTypes, id: \.self) {
                         Text($0)
@@ -63,6 +44,25 @@ struct LibraryView: View {
                         retrieveAlbums()
                     } else {
                         retrievePlaylists()
+                    }
+                }
+            }
+            
+            Section {
+                Group {
+                    VStack {
+                        Spacer()
+                        NavigationLink("Saved Albums") {
+                            MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+                        }
+                        Spacer()
+                    }
+                    VStack {
+                        Spacer()
+                        NavigationLink("Saved Playlists") {
+                            MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                        }
+                        Spacer()
                     }
                 }
             }
