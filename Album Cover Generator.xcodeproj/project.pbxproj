@@ -40,6 +40,7 @@
 		EDCB99472A1994EF00CA2BE2 /* ModelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99432A1994EE00CA2BE2 /* ModelInfo.swift */; };
 		EDCB99482A1994EF00CA2BE2 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99442A1994EE00CA2BE2 /* State.swift */; };
 		EDCB99492A1994EF00CA2BE2 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCB99452A1994EF00CA2BE2 /* Downloader.swift */; };
+		EDCC876F2A1C0B670062FC03 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = EDCC876E2A1C0B670062FC03 /* Neumorphic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 				EDCB99342A19936100CA2BE2 /* Path in Frameworks */,
 				ED1F3A0D29ECBDC700D66018 /* StableDiffusion in Frameworks */,
 				17D8349E29A9992A00F498D4 /* SpotifyAPI in Frameworks */,
+				EDCC876F2A1C0B670062FC03 /* Neumorphic in Frameworks */,
 				EDCB99372A19937700CA2BE2 /* CompactSlider in Frameworks */,
 				EDCB993A2A1993BC00CA2BE2 /* ZIPFoundation in Frameworks */,
 			);
@@ -215,6 +217,7 @@
 				EDCB99332A19936100CA2BE2 /* Path */,
 				EDCB99362A19937700CA2BE2 /* CompactSlider */,
 				EDCB99392A1993BC00CA2BE2 /* ZIPFoundation */,
+				EDCC876E2A1C0B670062FC03 /* Neumorphic */,
 			);
 			productName = "Album Cover Generator";
 			productReference = 17D8348B29A95D7A00F498D4 /* Album Cover Generator.app */;
@@ -251,6 +254,7 @@
 				EDCB99322A19936100CA2BE2 /* XCRemoteSwiftPackageReference "Path.swift" */,
 				EDCB99352A19937700CA2BE2 /* XCRemoteSwiftPackageReference "CompactSlider" */,
 				EDCB99382A1993BB00CA2BE2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				EDCC876D2A1C0B670062FC03 /* XCRemoteSwiftPackageReference "neumorphic" */,
 			);
 			productRefGroup = 17D8348C29A95D7A00F498D4 /* Products */;
 			projectDirPath = "";
@@ -563,6 +567,14 @@
 				minimumVersion = 0.9.16;
 			};
 		};
+		EDCC876D2A1C0B670062FC03 /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -595,6 +607,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EDCB99382A1993BB00CA2BE2 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
+		};
+		EDCC876E2A1C0B670062FC03 /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDCC876D2A1C0B670062FC03 /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

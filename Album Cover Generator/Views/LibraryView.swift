@@ -15,6 +15,7 @@ struct LibraryView: View {
     @State private var cancellables: [AnyCancellable] = []
     @State private var username = ""
     @State private var profilePicURL = URL(string: "")
+    @State private var logOut = false
     
     @State private var searchText = ""
     @State private var librarySearchType = "Albums"
@@ -24,93 +25,129 @@ struct LibraryView: View {
     @State var playlists = [Playlist<PlaylistItemsReference>]()
     
     var body: some View {
-        List {
-            Section {
-                Picker("", selection: $librarySearchType) {
-                    ForEach(libraryTypes, id: \.self) {
-                        Text($0)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .onChange(of: searchText) { _ in
-                    if librarySearchType == "Albums" {
-                        retrieveAlbums()
-                    } else {
-                        retrievePlaylists()
-                    }
-                }
-                .onChange(of: librarySearchType) { val in
-                    if val == "Albums" {
-                        retrieveAlbums()
-                    } else {
-                        retrievePlaylists()
-                    }
-                }
-            }
-            
-            Section {
-                Group {
-                    VStack {
-                        Spacer()
-                        NavigationLink("Saved Albums") {
-                            MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+            } else {
+                Section {
+                        Picker("", selection: $librarySearchType) {
+                            ForEach(libraryTypes, id: \.self) {
+                                Text($0)
+                            }
                         }
-                        Spacer()
-                    }
-                    VStack {
-                        Spacer()
-                        NavigationLink("Saved Playlists") {
-                            MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                        .pickerStyle(.segmented)
+                        .onChange(of: searchText) { _ in
+                            if librarySearchType == "Albums" {
+                                retrieveAlbums()
+                            } else {
+                                retrievePlaylists()
+                            }
                         }
-                        Spacer()
+                        .onChange(of: librarySearchType) { val in
+                            if val == "Albums" {
+                                retrieveAlbums()
+                            } else {
+                                retrievePlaylists()
+                            }
+                        }
+                    }
+                    
+        VStack {
+            if logOut {
+                AuthorizeView().environmentObject(spotify)
+                    .navigationBarBackButtonHidden(true)
+                    .navigationTitle(Text(""))
+            } else {
+                List {
+                    Section {
+                        Picker("", selection: $librarySearchType) {
+                            ForEach(libraryTypes, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .onChange(of: searchText) { _ in
+                            if librarySearchType == "Albums" {
+                                retrieveAlbums()
+                            } else {
+                                retrievePlaylists()
+                            }
+                        }
+                        .onChange(of: librarySearchType) { val in
+                            if val == "Albums" {
+                                retrieveAlbums()
+                            } else {
+                                retrievePlaylists()
+                            }
+                        }
+                    }
+                    Section {
+                        Group {
+                            VStack {
+                                Spacer()
+                                NavigationLink("Saved Albums") {
+                                    MusicCollectionListView(collectionType: .Albums).environmentObject(spotify)
+                                }
+                                Spacer()
+                            }
+                            VStack {
+                                Spacer()
+                                NavigationLink("Saved Playlists") {
+                                    MusicCollectionListView(collectionType: .Playlists).environmentObject(spotify)
+                                }
+                                Spacer()
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    Section {
+                        if (librarySearchType == "Albums") {
+                            ForEach(albums, id: \.self) { album in
+                                CollectionCellView(collection: album)
+                            }
+                        } else {
+                            ForEach(playlists, id: \.self) { playlist in
+                                CollectionCellView(collection: playlist)
+                            }
+                        }
+                    }
+                    
+                    
+                }
+                .font(.title)
+                .listStyle(.insetGrouped)
+                .navigationTitle("My Library")
+                .searchable(text: $searchText, prompt: "Search Albums and Playlists")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            logOutAlert = true
+                        }, label: {
+                            AsyncImage(url: profilePicURL) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                                
+                            } placeholder: {
+                                Image(systemName:"person.crop.circle")
+                                    .resizable()
+                            }
+                            .frame(width: 40, height: 40)
+                        })
                     }
                 }
-            }
-            
-            Section {
-                if (librarySearchType == "Albums") {
-                    ForEach(albums, id: \.self) { album in
-                        CollectionCellView(collection: album)
+                .alert(username, isPresented: $logOutAlert) {
+                    Button("Log Out", role: .destructive) {
+                        spotify.authorizationManagerDidDeauthorize()
+                        withAnimation(.easeOut) {
+                            logOut = true
+                        }
                     }
-                } else {
-                    ForEach(playlists, id: \.self) { playlist in
-                        CollectionCellView(collection: playlist)
-                    }
+                    Button("Cancel", role: .cancel) {}
                 }
-            }
-            
-            
-        }
-        .font(.title)
-        .listStyle(.insetGrouped)
-        .navigationTitle("My Library")
-        .searchable(text: $searchText, prompt: "Search Albums and Playlists")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    logOutAlert = true
-                }, label: {
-                    AsyncImage(url: profilePicURL) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .clipShape(Circle())
-                        
-                    } placeholder: {
-                        Image(systemName:"person.crop.circle")
-                            .resizable()
-                    }
-                    .frame(width: 40, height: 40)
-                })
+                .onAppear(perform: getUserInfo)
             }
         }
-        .alert(username, isPresented: $logOutAlert) {
-            Button("Log Out", role: .destructive) {
-                spotify.authorizationManagerDidDeauthorize()
-            }
-            Button("Cancel", role: .cancel) {}
-        }
-        .onAppear(perform: getUserInfo)
     }
     
     func getUserInfo() {

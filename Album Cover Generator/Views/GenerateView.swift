@@ -245,6 +245,7 @@ struct GenerateView: View {
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(50)
                     .shadow(radius: 20)
+                    .padding(.top, -50)
                 
                 InfoView(collection: collection, optionToggles: $optionToggles, showOptions: $showOptions)
                 
@@ -372,8 +373,10 @@ struct GenerateView: View {
         }
         .overlay(
             VStack {
-                Spacer()
-                GenerateOverlay(state: $generation.state, generateProgress: $generateProgress)
+                if generatePressed {
+                    Spacer()
+                    GenerateOverlay(state: $generation.state, generateProgress: $generateProgress)
+                }
                 if loadingPipeline {
                     Spacer()
                         .padding(.all)
@@ -394,7 +397,7 @@ struct GenerateView: View {
         if let albumCollection = collection as? Album {
             generation.positivePrompt = albumCollection.name + " " + (albumCollection.artists?.first?.name ?? "")
         } else if let playlistCollection = collection as? Playlist<PlaylistItemsReference> {
-            generation.positivePrompt = playlistCollection.name + " " + (playlistCollection.owner?.displayName ?? "")
+            generation.positivePrompt = playlistCollection.name
         }
         
         generation.positivePrompt += " Music Cover"
