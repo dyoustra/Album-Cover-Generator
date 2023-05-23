@@ -308,6 +308,7 @@ struct GenerateView: View {
                                     }
                                 }
                             }
+                            .disabled(generatePressed)
                             Divider()
                         }
                     }
